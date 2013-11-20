@@ -181,6 +181,7 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 							 self.userInteractionEnabled = YES;
 							 self.displayingDetailedView = YES;
 							 self.photoTableView.alpha = 1.;
+                              [self scrollViewDidScroll:self.photoTableView];
 							 [self.photoTableView reloadData];
 						 }
 					 }];
