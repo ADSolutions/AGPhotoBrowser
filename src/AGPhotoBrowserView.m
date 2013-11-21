@@ -305,6 +305,12 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 			// -- Animate out!
 			typeof(self) weakSelf __weak = self;
 			[self hideWithCompletion:^(BOOL finished){
+                
+                if ([_delegate respondsToSelector:@selector(photoBrowser:didTapOnDoneButton:)]) {
+                    self.displayingDetailedView = NO;
+                    [_delegate photoBrowser:self didTapOnDoneButton:nil];
+                }
+                
 				typeof(weakSelf) strongSelf __strong = weakSelf;
 				if (strongSelf) {
 					imageView.center = strongSelf->_startingPanPoint;
