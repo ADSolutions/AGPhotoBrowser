@@ -247,7 +247,7 @@
 - (UILabel *)titleLabel
 {
 	if (!_titleLabel) {
-		_titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, CGRectGetWidth(self.frame) - 40, 20)];
+		_titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, CGRectGetWidth(self.frame) - 40, 30)];
 		_titleLabel.textColor = [UIColor colorWithWhite:0.9 alpha:0.9];
 		_titleLabel.font = [UIFont boldSystemFontOfSize:14];
 		_titleLabel.backgroundColor = [UIColor clearColor];
@@ -270,7 +270,7 @@
 - (UILabel *)descriptionLabel
 {
 	if (!_descriptionLabel) {
-		_descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.frame) - 10 - 23, 160, 20)];
+		_descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.frame) - 50, 160, 40)];
 		_descriptionLabel.textColor = [UIColor colorWithWhite:0.9 alpha:0.9];
 		_descriptionLabel.font = [UIFont systemFontOfSize:13];
 		_descriptionLabel.backgroundColor = [UIColor clearColor];

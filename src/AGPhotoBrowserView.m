@@ -53,14 +53,13 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 - (void)setupView
 {
 	self.userInteractionEnabled = NO;
-	self.backgroundColor = [UIColor colorWithWhite:0. alpha:0.];
+	self.backgroundColor = self.backgroundColor;
 	_currentlySelectedIndex = NSNotFound;
-	
+    
 	[self addSubview:self.photoTableView];
 	[self addSubview:self.doneButton];
 	[self addSubview:self.overlayView];
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -172,7 +171,7 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 	
 	[UIView animateWithDuration:AGPhotoBrowserAnimationDuration
 					 animations:^(){
-						 self.backgroundColor = [UIColor colorWithWhite:0. alpha:1.];
+						 self.backgroundColor = self.backgroundColor;
 						 
 						 [[UIApplication sharedApplication] setStatusBarHidden:YES];
 					 }
@@ -201,7 +200,7 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 	[UIView animateWithDuration:AGPhotoBrowserAnimationDuration
 					 animations:^(){
 						 self.photoTableView.alpha = 0.;
-						 self.backgroundColor = [UIColor colorWithWhite:0. alpha:0.];
+						 self.backgroundColor = self.backgroundColor;
 						 
 						 [[UIApplication sharedApplication] setStatusBarHidden:NO];
 					 }
@@ -246,7 +245,6 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 					 }];
 }
 
-
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
@@ -261,7 +259,6 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 	
     return NO;
 }
-
 
 #pragma mark - Recognizers
 
@@ -293,7 +290,7 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 			// -- Back to original center
 			[UIView animateWithDuration:AGPhotoBrowserAnimationDuration
 							 animations:^(){
-								 self.backgroundColor = [UIColor colorWithWhite:0. alpha:1.];
+								 self.backgroundColor = self.backgroundColor;
 								 imageView.center = self->_startingPanPoint;
 							 } completion:^(BOOL finished){
                                  // -- Hide status bar
@@ -323,10 +320,9 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 		imageView.center = translatedPoint;
 		int heightDifference = abs(floor(_startingPanPoint.x - translatedPoint.x));
 		CGFloat ratio = (_startingPanPoint.x - heightDifference)/_startingPanPoint.x;
-		self.backgroundColor = [UIColor colorWithWhite:0. alpha:ratio];
+		self.backgroundColor = self.backgroundColor;
 	}
 }
-
 
 #pragma mark - Setters
 
@@ -349,7 +345,6 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 						 self.doneButton.alpha = newAlpha;
 					 }];
 }
-
 
 #pragma mark - Getters
 
@@ -411,7 +406,6 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 	return _overlayView;
 }
 
-
 #pragma mark - Private methods
 
 - (void)p_doneButtonTapped:(UIButton *)sender
@@ -421,6 +415,5 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
 		[_delegate photoBrowser:self didTapOnDoneButton:sender];
 	}
 }
-
 
 @end
