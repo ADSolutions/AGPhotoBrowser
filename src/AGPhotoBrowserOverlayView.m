@@ -54,10 +54,10 @@
 	if (self.descriptionExpanded) {
 		CGSize descriptionSize;
 		if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-			descriptionSize = [_description sizeWithFont:self.descriptionLabel.font  constrainedToSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 40, MAXFLOAT)];
+			descriptionSize = [self.desc sizeWithFont:self.descriptionLabel.font  constrainedToSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 40, MAXFLOAT)];
 		} else {
 			NSDictionary *textAttributes = @{NSFontAttributeName : self.descriptionLabel.font};
-			CGRect descriptionBoundingRect = [_description boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 40, MAXFLOAT)
+			CGRect descriptionBoundingRect = [self.descriptionLabel.text boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 40, MAXFLOAT)
 																					  options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:textAttributes
 																					  context:nil];
 			descriptionSize = CGSizeMake(ceil(CGRectGetWidth(descriptionBoundingRect)), ceil(CGRectGetHeight(descriptionBoundingRect)));
@@ -71,7 +71,7 @@
 	if ([self.descriptionLabel.text length]) {
 		CGSize descriptionSize;
 		if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-			descriptionSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font  constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
+			descriptionSize = [self.desc sizeWithFont:self.descriptionLabel.font  constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
 		} else {
 			NSDictionary *textAttributes = @{NSFontAttributeName : self.descriptionLabel.font};
 			CGRect descriptionBoundingRect = [self.descriptionLabel.text boundingRectWithSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)
@@ -215,12 +215,12 @@
     [self setNeedsLayout];
 }
 
-- (void)setDescription:(NSString *)description
+- (void)setDesc:(NSString *)desc
 {
-	_description = description;
+	_desc = desc;
 	
-	if ([_description length]) {
-		self.descriptionLabel.text = _description;
+	if ([_desc length]) {
+		self.descriptionLabel.text = _desc;
 	} else {
 		self.descriptionLabel.text = @"";
 	}

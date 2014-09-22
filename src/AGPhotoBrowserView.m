@@ -156,9 +156,9 @@ const NSInteger AGPhotoBrowserThresholdToCenter = 150;
     }
 	
 	if ([_dataSource respondsToSelector:@selector(photoBrowser:descriptionForImageAtIndex:)]) {
-		self.overlayView.description = [_dataSource photoBrowser:self descriptionForImageAtIndex:index];
+		self.overlayView.desc = [_dataSource photoBrowser:self descriptionForImageAtIndex:index];
 	} else {
-        self.overlayView.description = @"";
+        self.overlayView.desc = @"";
     }
 }
 
