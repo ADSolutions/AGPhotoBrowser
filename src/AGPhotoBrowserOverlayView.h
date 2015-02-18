@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static const CGFloat AGPhotoBrowserAnimationDuration = 0.25;
-static const NSInteger AGPhotoBrowserOverlayInitialHeight = 120;
+static const NSInteger AGPhotoBrowserOverlayInitialHeight = 200;
 
 @class AGPhotoBrowserOverlayView;
 
